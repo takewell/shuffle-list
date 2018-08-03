@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  include ./menu.pug
+  div(style="margin:6em")
+
+  .ui.top.attached.tabular.three.item.menu
+    a.item(href="/discover") おすすめ
+    a.item.active(href="/all") すべて
+    if reqUser
+      a.item(href="/timeline") フォロー中
+    else
+      a.item.recommend-login-button-container(
+        data-element-name= "timelinePageLink"
+      )
+
+  .ui.bottom.attached.segment
+    //- user & isMine
+    if reqUser
+      #list-table-container(
+        data-api-token= apiToken
+        data-lists= lists
+      )
+    //- visiter
+    else
+      include ./visitercardtable.pug
+  include ./paginate

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .ui.masthead.center.aligned.red.inverted.segment  
+    .ui.text.container(style="margin:5em 0em 6em;")
+      img.image(src="images/logo.png")
+      h1.ui.inverted.header(style="font-size:3.6em;")= message
+      h2.ui.inverted.header ステータスコード #{error.status}
+      a.ui.huge.yellow.button.inverted(href="/") トップへ戻る
+        i.right.arrow.icon
+      br
+      br
+      a.ui.header.inverted(href="https://twitter.com/shuffle_list") 不具合報告
+

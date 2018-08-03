@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  include ./menu.pug
+  .ui.segment(style="margin-top:4.5em;")
+    .ui.container.text(style="margin-top:1.5em;")
+      h2.ui.header
+        i.bookmark.outline.icon
+        .content ブックマークリスト
+      #home-bookmark-table-container(
+        data-api-token= apiToken
+      )
+
+      h2.ui.header
+        i.user.outline.icon
+        .content パーソナルリスト
+      .ui.aligned.segment.basic
+        #home-table-container(
+         data-api-token= apiToken
+        )
+
+      .ui.center.aligned.segment.basic
+        #createlist-button-container(
+          data-api-token= apiToken
+        )

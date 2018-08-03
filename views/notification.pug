@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  include ./menu.pug
+  .ui.segment(style="margin-top:4.5em;")
+    .ui.container.text
+      .ui.feed
+        if events
+          each event, index in events
+            .event
+              .label
+                img(src=`${event.photoSrc}`)
+              .content
+                h3 #{event.userDisplayName} さんがあなたをフォローしました。
+                .date #{event.createdAt}        
+        .event
+          .label
+            img(src="/images/logo.png")
+          .content
+            h3 Shuffle List にようこそ！
+            .date 

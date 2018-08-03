@@ -1,0 +1,17 @@
+.ui.container.text.center.aligned
+  if paginate.hasPreviousPages || paginate.hasNextPages(pageCount)
+    div#pagination
+      .ui.horizontal.list
+        if paginate.hasPreviousPages
+          a.item(href=paginate.href(true))
+            i.arrow.alternate.circle.left.outline.icon
+            | Previous
+        if pages
+          .ui.circular.labels
+            each page in pages
+              a.item.ui.label(href=page.url) 
+                h1 #{page.number}
+        if paginate.hasNextPages(pageCount)
+          a.item(href=paginate.href())
+            | Next&nbsp;
+            i.arrow.alternate.circle.right.outline.icon

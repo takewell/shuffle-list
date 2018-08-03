@@ -1,0 +1,26 @@
+.ui.top.huge.fixed.borderless.menu.main
+  .ui.container.text
+    a.item.header(href="/" style="margin-left:27px")
+      img(src="/images/logo.png")
+    .menu
+      a.ui.item(href="/discover")
+        i.big.wpexplorer.icon
+    if reqUser
+      a.ui.item(href="/notification")
+        i.big.bell.outline.icon
+      .ui.simple.dropdown.item
+        img.ui.avatar.image(src=`${reqUser.photoSrc}`)      
+        .left.menu
+          .header #{reqUser.userName}
+          a.item(href=`/${reqUser.userName}`) マイページ
+          a.item(href=`/logout`) ログアウト
+    else
+      .ui.item
+        .recommend-login-button-container(
+          data-element-name= "bellIcon"
+        )
+         
+      .ui.item
+        .recommend-login-button-container(
+          data-element-name= "userIcon"
+        )

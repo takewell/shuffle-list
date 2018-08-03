@@ -1,0 +1,87 @@
+extends ../layout
+
+block content
+  include ../menu.pug
+  .ui.segment(style="margin-top:4em;")
+    .ui.container.text
+      .ui.items
+        - const listId = list.listId;
+        //- isMine list
+        if reqUser && list.userId === reqUser.userId
+          #editlistpage-button-container(
+            data-api-token= apiToken
+            data-list-id= listId
+          )
+        .ui.item
+          .ui.small.image
+            if list.pictureSrc
+              img(src=`${list.pictureSrc}` alt="リストのイメージ画像" style="border-radius: 8px;")
+            else  
+              img(src="/images/maincolor.png" style="border-radius: 8px;")
+          .middle.aligned.content
+            h1 #{list.listName}
+            p.description #{list.description}
+            p.description 作成者 
+              a(href=`/${list.user.userName}`) #{list.user.displayName}
+      .ui.horizontal.list
+        if reqUser
+          .item
+            - const goodCount = list.liststatistic.goodCount;
+            #goodlistpage-button-container(
+               data-api-token= apiToken
+               data-list-id= listId
+               data-good-count= goodCount
+            )
+          .item
+            - const bookmarkCount = list.liststatistic.bookmarkCount;
+            #bookmarklistpage-button-container(
+               data-api-token= apiToken
+               data-list-id= listId
+               data-bookmark-count= bookmarkCount
+            )
+        else
+          .item
+            i.thumbs.up.icon 
+            | #{list.liststatistic.goodCount}
+          .item
+            i.bookmark.icon 
+            | #{list.liststatistic.bookmarkCount}
+        .item
+          a(href=`https://twitter.com/intent/tweet?button_hashtag=shuffle_list&url=https://shuffle_list.com/${list.user.userName}/${list.listId}/&text=${list.listName} on @shufle_list&ref_src=twsrc%5Etfw`)
+            i.share.icon
+            | 共有
+
+    //- isMine
+    if reqUser && reqUser.userId === list.userId
+      .ui.container.text
+          .ui.aligned.segment.basic
+            #card-table-container(
+              data-api-token= apiToken
+              data-list-id= listId
+            )
+          .ui.center.aligned.segment.basic
+            #addcard-button-container(
+              data-api-token= apiToken
+              data-list-id = listId
+            )
+    //- user and visiter
+    else
+      .ui.container.text
+        .ui.aligned.segment.basic
+          #shuffle-button-container(
+            data-cards= cards
+          )
+          each card, index in cards
+            .ui.divided.unstackable.items
+              .item
+                .ui.tiny.image
+                  if card.pictureSrc
+                    img(src=`${card.pictureSrc}`)
+                  else
+                    img(src="/images/card.png")
+                .ui.middle.aligned.content
+                  if card.href
+                    a(href=`${card.href}`)
+                      h3(style="wordWrap: 'break-word'") #{card.content}
+                  else
+                    h3(style="wordWrap: 'break-word'") #{card.content}

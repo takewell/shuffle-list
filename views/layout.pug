@@ -1,0 +1,41 @@
+doctype html
+html(lang="ja" prefix="og: http://ogp.me/ns#")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Shufle List (シャッフルリスト)
+    link(rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css")
+    link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css")
+    link(rel='stylesheet', href='/semantic/dist/semantic.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="apple-touch-icon-precomposed" href="/images/logo.png")
+    <meta property="og:title" content="Shuffle List" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="リストを作ってシャッフル、共有するサービスです。あなたが繰り返している選択を一瞬で終わらせてみてください。" />
+    <meta property="og:url" content="https://www.shuffle-list.com/" />
+    <meta property="og:site_name" content="Shuffle List" />
+    <meta property="og:image" content="https://www.shuffle-list.com/images/logo.png" />
+
+  //- <!-- Global site tag (gtag.js) - Google Analytics -->
+  script(async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID")
+  script(type='text/javascript').
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-122399534-1');
+  body
+    block content
+    .ui.container
+      footer
+        .ui.vertical.segment
+          .ui.center.aligned.container
+            .ui.horizontal.small.divided.link.list
+              a.item(href="/terms-of-service") 利用規約
+              a.item(href="/privacy_policy") プライバシーポリシー
+              a.item(href="https://twitter.com/shuffle_list") お問い合わせ・フィードバック
+            p ©️ 2018 Shuffle List
+
+    script(src="/javascripts/bundle.js")
+    script(src="/semantic/dist/semantic.min.js")
+    script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")

@@ -1,0 +1,27 @@
+.ui.centered.cards
+  each list, index in lists
+    .ui.card
+      .ui.content
+        .content
+          img.ui.avatar.image(src=`${list.user.photoSrc}`) 
+          a.header(href=`/${list.user.userName}` style="color: black;") &nbsp;#{list.user.displayName}
+      a.image(href=`/${list.user.userName}/${list.listId}`)
+        if list.pictureSrc
+          img(src=`${list.pictureSrc}`)
+        else  
+          img(src="/images/maincolor.png")
+      a.content(href=`/${list.user.userName}/${list.listId}`)
+        .header #{list.listName}
+        .description.hiddenOverText #{list.description}
+      .extra.content
+        .ui.horizontal.list
+          .item
+            i.thumbs.up.icon 
+            | #{list.liststatistic.goodCount}
+          .item
+            i.bookmark.icon 
+            | #{list.liststatistic.bookmarkCount}
+          .item
+            a(href=`https://twitter.com/intent/tweet?button_hashtag=shuffle_list&url=https://shuffle_list.com/${list.user.userName}/${list.listId}/&text=${list.listName} on @shufle_list&ref_src=twsrc%5Etfw`)
+              i.share.icon
+              | 共有

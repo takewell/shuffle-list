@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  include ./menu.pug
+  include ./user.pug
+
+  .ui(style="margin-top:0em;") 
+    .ui.top.attached.tabular.three.item.menu
+      a.item(href=`/${user.userName}`) リスト
+      a.item.active(href=`/${user.userName}/following`) フォロー
+      a.item(href=`/${user.userName}/followers`) フォロワー
+    .ui.bottom.attached.segment
+      .ui.container.text
+        if followings.length === 0
+          br
+          h3.ui.header  現在フォローしているユーザーはいません。
+          br
+        each following, index in followings
+          .ui.divided.unstackable.items
+              .item
+                .ui.tiny.image
+                  - const photoSrc200 = following.photoSrc.replace(/_normal.jpg$/,'_200x200.jpg');
+                  img(src=`${photoSrc200}`, alt="プロフィール画像")
+                .ui.middle.aligned.content
+                  a(href=`/${following.userName}`)
+                    h3 #{following.displayName}
+                  p #{following.description}
+                .extra
+                  - const userId = following.userId
+                  .follow-button-container(
+                    data-api-token= apiToken 
+                    data-user-id= userId
+                  ).ui.right.floated

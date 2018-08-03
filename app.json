@@ -1,0 +1,9 @@
+{
+  "name": "shuffle-list",
+  "description": "即決アプリ。あなたが毎日繰り返している選択を一瞬で終わらせましょう。",
+  "logo": "",
+  "keywords": [
+    "node"
+  ],
+  "image": "heroku/nodejs"
+}

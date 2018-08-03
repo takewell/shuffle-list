@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  include ./menu.pug
+  div(style="margin:6em")
+
+  .ui.top.attached.tabular.three.item.menu
+    a.item(href="/discover") おすすめ
+    a.item(href="/all") すべて
+    a.item.active(href="/timeline") フォロー中
+  .ui.bottom.attached.segment
+    if reqUser
+      #list-table-container(
+        data-api-token= apiToken
+        data-lists= lists
+      )
+  include ./paginate

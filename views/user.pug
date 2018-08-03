@@ -1,0 +1,22 @@
+.ui.segment(style="margin-top:4.5em;")
+  .ui.container.text(style="margin-top:2em;")
+    .ui.items
+      .ui.item
+        .ui.small.image.avatar
+          - const photoSrc200 = user.photoSrc.replace(/_normal.jpg$/,'_200x200.jpg');
+          img(src=`${photoSrc200}`, alt="プロフィール画像")
+        .middle.aligned.content
+          h2.header #{user.displayName}
+          p.description @#{user.userName}
+          .ui.fitted.divider
+          p.description #{user.description}
+          a(href=`https://twitter.com/${user.userName}` target="_blank")
+            button.ui.circular.twitter.icon.button
+              i.twitter.icon
+          .extra
+          if reqUser && reqUser.userId != user.userId
+            - const userId = user.userId;
+            #follow-button-container(
+              data-api-token= apiToken 
+              data-user-id= userId
+            ).ui.right.floated

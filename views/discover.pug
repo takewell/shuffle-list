@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  include ./menu.pug
+  div(style="margin:6em;")
+  .ui.top.attached.tabular.three.item.menu
+    a.item.active(href="/discover") おすすめ
+    a.item(href="/all") すべて
+    if reqUser
+      a.item(href="/timeline") フォロー中
+    else
+      a.item.recommend-login-button-container(
+        data-element-name= "timelinePageLink"
+      )
+  .ui.attached.segment
+    br
+    .ui.header.center.aligned
+      h1 ピックアップ 
+      br
+
+    .ui.centered.cards
+      each officialList, index in officialLists
+        .ui.card
+          .ui.content
+            .content
+              img.ui.avatar.image(src=`${officialList.user.photoSrc}`) 
+              a.header(href=`/${officialList.user.userName}` style="color: black;") &nbsp;#{officialList.user.displayName}
+          a.image(href=`/${officialList.user.userName}/${officialList.listId}`)
+            if officialList.pictureSrc
+              img(src=`${officialList.pictureSrc}`)
+            else  
+              img(src="/images/maincolor.png")
+          a.content(href=`/${officialList.user.userName}/${officialList.listId}`)
+            .header #{officialList.listName}
+            .description.hiddenOverText #{officialList.description}
+
+    .ui.header.center.aligned
+      br
+      h1 人気のシャッフルリスト
+      br
+    //- user & isMine
+    if reqUser && apiToken
+      #list-table-container(
+        data-api-token= apiToken
+        data-lists= lists
+      )
+    //- visiter
+    else
+      include ./visitercardtable.pug

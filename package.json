@@ -1,0 +1,58 @@
+{
+  "name": "shuffle",
+  "version": "0.9.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
+    "watch": "./node_modules/.bin/webpack --progress --watch --config webpack.config.js",
+    "test": "node_modules/.bin/mocha"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "body-parser": "~1.17.1",
+    "connect-redis": "^3.3.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-paginate": "^1.0.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.12.1",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.2.2",
+    "mocha": "^5.2.0",
+    "moment": "^2.22.2",
+    "morgan": "~1.8.1",
+    "multer": "^1.3.0",
+    "passport": "^0.4.0",
+    "passport-oauth1": "^1.1.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "pug": "~2.0.0-beta11",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-dropzone": "^4.2.11",
+    "react-slick": "^0.23.1",
+    "request": "^2.87.0",
+    "semantic-ui-react": "^0.81.1",
+    "sequelize": "^4.37.10",
+    "serve-favicon": "~2.4.2",
+    "shortid": "^2.2.8",
+    "supertest": "^3.1.0",
+    "xtraverse": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "semantic-ui": "^2.3.1",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4"
+  },
+  "engines": {
+    "node": "8.9.1"
+  }
+}

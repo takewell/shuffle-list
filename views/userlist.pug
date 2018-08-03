@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  include ./menu.pug
+  include ./user.pug
+     
+  .ui(style="margin-top:0em;")          
+    .ui.top.attached.tabular.three.item.menu
+      a.item.active(href=`/${user.userName}`) リスト
+      a.item(href=`/${user.userName}/following`) フォロー
+      a.item(href=`/${user.userName}/followers`) フォロワー
+    //- isMine
+    if reqUser && reqUser.userId === user.userId
+      .ui.bottom.attached.segment
+        - var reqUserId = reqUser.userId;
+        #my-list-table-container(
+          data-api-token= apiToken
+          data-req-user-id= reqUserId
+        ) 
+        .ui.center.aligned.segment.basic
+          #createlist-button-container(
+            data-api-token= apiToken
+          )
+
+    //-  isVisiter & isUser
+    else 
+      .ui.bottom.attached.segment
+        .ui.centered.cards(style="margin-top:2em;")          
+          each list, index in lists
+            a.ui.card(href=`/${list.user.userName}/${list.listId}`)
+              .image
+                if list.pictureSrc
+                  img(src=`${list.pictureSrc}`)
+                else 
+                  img(src="/images/maincolor.png")
+              .content
+                .header #{list.listName}
+                .description.hiddenOverText #{list.description}

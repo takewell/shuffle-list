@@ -1,0 +1,21 @@
+body {
+ background-color: rgb(245, 245, 245);
+ min-height: 100%;
+}
+
+footer {
+  margin-top: 10%;
+  bottom: 0;
+}
+
+.hiddenOverText {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.nobreak{
+  display:inline-block;
+}
