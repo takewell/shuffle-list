@@ -19,5 +19,5 @@ git clone してビルドていただけるようには用意していません�
 
 # 記事
 
-- [Qiita]()
-- [note]()
+- [Qiita](https://qiita.com/takewell/items/1a8873b92e9bce8a4164)
+- [note](https://note.mu/takewell/n/ned5071044058)
