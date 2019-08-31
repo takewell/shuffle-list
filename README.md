@@ -1,6 +1,6 @@
 # Shuffle-list
 
-URL https://www.shuffle-list.com/
+URL https://www.shuffle-list.takewell.dev
 
 ![image](https://user-images.githubusercontent.com/22574053/43649186-78a047ec-9777-11e8-905c-549d97d8dd80.png)
 
