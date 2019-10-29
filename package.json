@@ -36,7 +36,7 @@
     "react-slick": "^0.23.1",
     "request": "^2.87.0",
     "semantic-ui-react": "^0.81.1",
-    "sequelize": "^4.37.10",
+    "sequelize": "^5.15.1",
     "serve-favicon": "~2.4.2",
     "shortid": "^2.2.8",
     "supertest": "^3.1.0",
